@@ -1,0 +1,22 @@
+<div class="container">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">CÓDIGO</th>
+        <th scope="col">NOME</th>
+        <th scope="col">ENDEREÇO</th>
+        <th scope="col" colspan="2" style="width:auto;text-align:center">AÇÕES</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let estabelecimento of estabelecimentos">
+        <th scope="row">{{ estabelecimento.id }}</th>      
+        <td>{{ estabelecimento.nome }}</td>
+        <td>{{ estabelecimento.endereco }}</td>
+        <td><button type="button" class="btn btn-primary" (click)="onEdit(estabelecimento)">Editar</button></td>
+        <td><button type="button" class="btn btn-danger" (click)="onDelete(estabelecimento)">Deletar</button></td>
+      </tr>    
+    </tbody>
+  </table>
+  </div>
+  

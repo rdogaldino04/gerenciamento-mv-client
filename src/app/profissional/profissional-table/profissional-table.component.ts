@@ -46,8 +46,11 @@ export class ProfissionalTableComponent implements OnInit {
         console.log(dados);        
         this.loadDadosTable();
       },
-      (error: any) => alert(error)
-    );    
+      (error: any) => {
+        let value = Object.assign({}, error);
+        alert(value.error.userMessage);
+        //console.log(value.error.userMessage);
+      });    
   }
 
   loadDadosTable() {

@@ -1,5 +1,16 @@
 <div class="container" style="padding: 20px;">
+  <p><strong>Vincula o Profissional ao Estabelecimento</strong></p>
 <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+  
+  <div class="form-group">
+    <label for="estabelecimentoFormControlSelect">Selecione o estabelecimento</label>
+    <select class="form-control" id="estabelecimentoFormControlSelect" formControlName="estabelecimentoId"
+    (change)="onSelectedEstabelecimento(formulario.get('estabelecimentoId').value)">
+      <option *ngFor="let estabelecimento of estabelecimentos" [value]="estabelecimento.id">
+        {{ estabelecimento.nome }}
+      </option>
+    </select>
+  </div>
   
   <div class="form-group">
     <label for="profissionalFormControlSelect">Selecione o profissional:</label>
@@ -9,15 +20,7 @@
       </option>
     </select>
   </div>
-  <div class="form-group">
-    <label for="estabelecimentoFormControlSelect">Selecione o estabelecimento</label>
-    <select class="form-control" id="estabelecimentoFormControlSelect" formControlName="estabelecimentoId">
-      <option *ngFor="let estabelecimento of estabelecimentos" [value]="estabelecimento.id">
-        {{ estabelecimento.nome }}
-      </option>
-    </select>
-  </div>
-
+  
   <button type="submit" class="btn btn-primary" [disabled]="!formulario.valid">Vincular</button>
   
 </form>

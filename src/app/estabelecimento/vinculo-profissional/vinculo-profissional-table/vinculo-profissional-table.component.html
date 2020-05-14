@@ -1,3 +1,22 @@
-<p>
-  vinculo-profissional-table works!
-</p>
+<div class="container">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">CÓDIGO</th>
+        <th scope="col">NOME</th>
+        <th scope="col">ENDEREÇO</th>
+        <th scope="col">AÇÕES</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let profissional of profissionais">
+        <th scope="row">{{ profissional.id }}</th>      
+        <td>{{ profissional.nome }}</td>
+        <td>{{ profissional.endereco }}</td>        
+        <td><button type="button" class="btn btn-danger" 
+            (click)="onDesvincular(profissional.id)">Desvincular</button></td>
+      </tr>    
+    </tbody>
+  </table>
+  </div>
+  

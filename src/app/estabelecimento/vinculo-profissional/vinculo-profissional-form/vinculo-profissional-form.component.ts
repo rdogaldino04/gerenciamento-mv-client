@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Profissional } from 'src/app/profissional/profissional';
 import { Estabelecimento } from '../../estabelecimento';
+import { EstabelecimentoService } from '../../estabelecimento.service';
 
 @Component({
   selector: 'app-vinculo-profissional-form',
@@ -42,13 +43,12 @@ export class VinculoProfissionalFormComponent implements OnInit {
 
     this.http
         .put('http://localhost:8000/estabelecimento/' + valueSubmit.estabelecimentoId 
-          + '/profissionais/' +valueSubmit.profissionalId, JSON.stringify(valueSubmit), headers)
+          + '/profissionais/' +valueSubmit.profissionalId, JSON.stringify({}), headers)
         .subscribe(
           dados => {
-            console.log(dados);
-            // reseta o form
-            //this.formulario.reset();                    
-            //ProfissionalService.editouProfissional.emit(dados as Profissional);
+            console.log(valueSubmit);
+            EstabelecimentoService.vinculouProfissional.emit(valueSubmit.estabelecimentoId);
+            //this.formulario.reset();                                
           },
           (error: any) => {
             let value = Object.assign({}, error);
@@ -80,6 +80,11 @@ export class VinculoProfissionalFormComponent implements OnInit {
         },
         (error: any) => alert('erro')
     );
+  }
+
+  onSelectedEstabelecimento(estabelecimentoId: number) {
+    console.log(estabelecimentoId);
+    EstabelecimentoService.selecionouEstabelecimento.emit(estabelecimentoId);
   }
 
 }

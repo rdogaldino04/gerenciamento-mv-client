@@ -8,7 +8,7 @@ const routes: Routes = [
   { path: 'profissionais', component: ProfissionalComponent },
   { path: 'estabelecimentos', component: EstabelecimentoComponent },
   { path: 'vinculo-estabelecimento-profissionais', component: VinculoProfissionalComponent },
-  //{ path: '', pathMatch: 'full', redirectTo: 'dataForm' }
+  { path: '', pathMatch: 'full', redirectTo: 'profissionais' }
 ];
 
 @NgModule({

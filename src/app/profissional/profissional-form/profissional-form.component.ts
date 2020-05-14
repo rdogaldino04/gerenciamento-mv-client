@@ -51,7 +51,11 @@ export class ProfissionalFormComponent implements OnInit {
             this.formulario.reset();                    
             ProfissionalService.criouNovoProfissional.emit(dados as Profissional);
           },
-          (error: any) => alert('erro')
+          (error: any) => {
+            let value = Object.assign({}, error);
+            alert(value.error.userMessage);
+            //console.log(value.error.userMessage);
+          }
         );
     } else {
       this.http
@@ -63,7 +67,11 @@ export class ProfissionalFormComponent implements OnInit {
             this.formulario.reset();                    
             ProfissionalService.editouProfissional.emit(dados as Profissional);
           },
-          (error: any) => alert('erro')
+          (error: any) => {
+            let value = Object.assign({}, error);
+            alert(value.error.userMessage);
+            //console.log(value.error.userMessage);
+          }
         );
     }
   }

@@ -61,7 +61,11 @@ export class ProfissionalTableComponent implements OnInit {
           console.log(dados);
           this.profissionais = dados as Profissional[];
         },
-        (error: any) => alert('erro')
+        (error: any) => {
+          let value = Object.assign({}, error);
+          alert(value.error.userMessage);
+          //console.log(value.error.userMessage);
+        }
     );
   }
 }

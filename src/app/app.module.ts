@@ -11,6 +11,9 @@ import { ProfissionalTableComponent } from './profissional/profissional-table/pr
 import { EstabelecimentoComponent } from './estabelecimento/estabelecimento.component';
 import { EstabelecimentoFormComponent } from './estabelecimento/estabelecimento-form/estabelecimento-form.component';
 import { EstabelecimentoTableComponent } from './estabelecimento/estabelecimento-table/estabelecimento-table.component';
+import { VinculoProfissionalComponent } from './estabelecimento/vinculo-profissional/vinculo-profissional.component';
+import { VinculoProfissionalFormComponent } from './estabelecimento/vinculo-profissional/vinculo-profissional-form/vinculo-profissional-form.component';
+import { VinculoProfissionalTableComponent } from './estabelecimento/vinculo-profissional/vinculo-profissional-table/vinculo-profissional-table.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,10 @@ import { EstabelecimentoTableComponent } from './estabelecimento/estabelecimento
     ProfissionalTableComponent,
     EstabelecimentoComponent,
     EstabelecimentoFormComponent,
-    EstabelecimentoTableComponent
+    EstabelecimentoTableComponent,
+    VinculoProfissionalComponent,
+    VinculoProfissionalFormComponent,
+    VinculoProfissionalTableComponent
   ],
   imports: [
     BrowserModule,

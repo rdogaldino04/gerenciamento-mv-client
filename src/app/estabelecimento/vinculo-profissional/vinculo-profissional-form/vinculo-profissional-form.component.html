@@ -1,0 +1,24 @@
+<div class="container" style="padding: 20px;">
+<form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+  
+  <div class="form-group">
+    <label for="profissionalFormControlSelect">Selecione o profissional:</label>
+    <select class="form-control" id="profissionalFormControlSelect" formControlName="profissionalId">
+      <option *ngFor="let profissional of profissionais" [value]="profissional.id">
+        {{ profissional.nome }}
+      </option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="estabelecimentoFormControlSelect">Selecione o estabelecimento</label>
+    <select class="form-control" id="estabelecimentoFormControlSelect" formControlName="estabelecimentoId">
+      <option *ngFor="let estabelecimento of estabelecimentos" [value]="estabelecimento.id">
+        {{ estabelecimento.nome }}
+      </option>
+    </select>
+  </div>
+
+  <button type="submit" class="btn btn-primary" [disabled]="!formulario.valid">Vincular</button>
+  
+</form>
+</div>
